@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title> Status Complaint Page</title>
+
+<style>
+:root{--brand:#232427;--light:#f4f6f9}
+*{box-sizing:border-box;font-family:"Segoe UI",sans-serif;margin:0}
+body{background:rgb(221, 221, 213);display:flex;flex-direction:column;min-height:100vh}
+header{background:var(--brand);color:#fff;padding:1rem 2rem}
+main{flex:1;max-width:1080px;width:100%;margin:auto;padding:2rem}
+.card{background:#fff;border-radius:.6rem;box-shadow:0 2px 6px rgba(0,0,0,.08);padding:1.5rem 2rem}
+
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+thead{background:var(--brand);color:#fff}
+th,td{padding:.65rem .8rem;border-bottom:1px solid #e5e5e5;vertical-align:top}
+tbody tr:nth-child(even){background:#fafbfc}
+
+.badge{padding:.25rem .6rem;border-radius:.4rem;font-weight:600;font-size:.75rem;display:inline-block;cursor:pointer}
+.pending  {background:#ffd8d6;color:#8b0000}       /* dark‑red theme */
+.completed{background:#c8e6c9;color:#1b5e20}
+
+.empty{color:#777;text-align:center;padding:2rem 0;font-style:italic}
+</style>
+</head>
+<body>
+<header><h1>Complaint Status Board</h1></header>
+
+<main>
+  <div class="card">
+    <h2 style="margin-bottom:1rem">All Submitted Complaints</h2>
+    <div id="container"><p class="empty">Loading…</p></div>
+  </div>
+</main>
+
+<script>
+const $  = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+/* -------- Load complaints, defaulting status to "Pending" -------- */
+function load() {
+  return JSON.parse(localStorage.getItem('complaints') || '[]')
+         .map(r=>({...r,status:r.status||'Pending'}));
+}
+
+/* -------- Render table -------- */
+function render() {
+  const data = load();
+  const c = $('container');
+
+  if (!data.length) {
+    c.innerHTML = '<p class="empty">No complaints found. Submit from the dashboard first.</p>';
+    return;
+  }
+
+  c.innerHTML = `
+  <div style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Date</th><th>Name</th><th>Email</th>
+          <th>Address</th><th>City</th><th>State</th><th>Pincode</th>
+          <th>Details</th><th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${data.map((r,i)=>`
+          <tr>
+            <td>${i+1}</td><td>${esc(r.time)}</td><td>${esc(r.name)}</td><td>${esc(r.email)}</td>
+            <td>${esc(r.addr)}</td><td>${esc(r.city)}</td><td>${esc(r.state)}</td><td>${esc(r.pin)}</td>
+            <td>${esc(r.msg)}</td>
+            <td>
+              <span class="badge ${r.status==='Completed'?'completed':'pending'}" data-index="${i}">
+                ${r.status}
+              </span>
+            </td>
+          </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`;
+}
+
+/* -------- Toggle Pending → Completed -------- */
+document.addEventListener('click', e=>{
+  const badge = e.target.closest('.badge');
+  if (!badge) return;
+
+  const idx   = +badge.dataset.index;
+  const items = load();
+
+  if (items[idx].status === 'Completed') return;       // already done
+  items[idx].status = 'Completed';
+
+  localStorage.setItem('complaints', JSON.stringify(items));
+  render();
+});
+
+/* Initial paint */
+render();
+</script>
+</body>
+</html>
