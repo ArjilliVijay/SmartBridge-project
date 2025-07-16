@@ -74,7 +74,7 @@ It was a fantastic journey where I got to combine creativity with logic, solving
 
 🚀 I am truly grateful to the SmartInternz platform for providing this opportunity and guidance throughout the internship.
 
-🔗 Feel free to check out the project on GitHub or view the live version (if hosted).
+🔗 Feel free to check out the project on GitHub or view the live version https://smartinternz.netlify.app/.
 📩 I'm open to feedback and collaboration opportunities.
 
 
