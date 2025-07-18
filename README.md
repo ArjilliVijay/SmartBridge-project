@@ -70,12 +70,18 @@ Understanding the complete software development life cycle (SDLC) in web project
 
 It was a fantastic journey where I got to combine creativity with logic, solving real-world problems through code.
 
-💡 This project helped me understand how a complaint management system works and how full stack applications are built from the ground up. I'm confident that the skills I’ve gained will continue to help me build powerful and user-centric web solutions.
+💡 This project helped me understand how a complaint management system works and how full-stack applications are built from the ground up. I'm confident that the skills I’ve gained will continue to help me build powerful and user-centric web solutions.
 
 🚀 I am truly grateful to the SmartInternz platform for providing this opportunity and guidance throughout the internship.
 
 🔗 Feel free to check out the project on GitHub or view the live version https://smartinternz.netlify.app/.
 📩 I'm open to feedback and collaboration opportunities.
+
+<h2>Project Photos :</h2>
+<img src="<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/55ffec41-37e7-4a6e-b965-4b3205e8cca3" />
+
+
+Live Demo : 
 
 
 
