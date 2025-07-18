@@ -79,9 +79,14 @@ It was a fantastic journey where I got to combine creativity with logic, solving
 
 <h2>Project Photos :</h2>
 <img src="<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/55ffec41-37e7-4a6e-b965-4b3205e8cca3" />
+<img src="<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d1a2eee2-363e-48ee-b3fa-9577aab357db" />
+<img src="<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1513be2b-7e07-49bb-b625-8d88737feae1" />
+<img src="<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/90ade00d-946d-4af8-bc3c-40e3c4ecf127" />
 
 
-Live Demo : 
+
+
+Live Demo : https://drive.google.com/file/d/12ak4cVrLIHwXSLM5TjexrAYPywtyYNkU/view?usp=drivesdk
 
 
 
